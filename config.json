@@ -1,0 +1,17 @@
+{
+  "snippets": {
+    "greet": {
+      "type": "clipboard",
+      "value": "Hello, how are you?"
+    }
+  },
+  "commands": {
+    "git_all": {
+      "type": "command",
+      "value": "git add . && git commit -m \"{msg}\" && git push",
+      "defaults": {
+        "msg": "Updated files"
+      }
+    }
+  }
+}
