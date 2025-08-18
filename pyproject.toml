@@ -1,6 +1,6 @@
 [project]
 name = "sccb"
-version = "0.1.0"
+version = "0.3.0"
 description = "Shortcut Clipboard + Command Binder"
 authors = [{ name = "Ajinkya Dhamdhere" }]
 dependencies = ["typer", "pyperclip", "rich"]

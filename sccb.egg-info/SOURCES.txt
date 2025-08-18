@@ -1,3 +1,4 @@
+README.md
 pyproject.toml
 sccb/__init__.py
 sccb/cli.py
