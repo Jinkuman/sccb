@@ -29,7 +29,7 @@ From PyPI (recommended)
 
 From source
 
-    git clone https://github.com/yourusername/sccb.git
+    git clone https://github.com/Jinkuman/sccb.git
     cd sccb
     pip install -e .
 
