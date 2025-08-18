@@ -9,9 +9,9 @@ I built this project to save time in my daily workflow — instead of typing lon
 
 ✨ Features
 
-- 🔖 Snippets → Save reusable text and copy it to your clipboard with one command.
+- 🔖 Snippets → Save reusable text (like API keys, tokens, boilerplate) and copy it to your clipboard with one command.
 - ⚡ Commands → Save shell command macros and run them instantly.
-- 📝 Variable substitution → Use placeholders like {msg} or {name} and fill them at runtime.
+- 📝 Variable substitution → Use placeholders like {msg} or {key} and fill them at runtime.
 - 🛠 Defaults → Define default values for variables in your config or via sccb default.
 - 📂 Config file → All shortcuts are stored in ~/.sccb.json (easy to edit, share, or sync).
 - 🎨 Pretty output → Uses Rich for nice tables.
@@ -29,7 +29,7 @@ From PyPI (recommended)
 
 From source
 
-    git clone https://github.com/Jinkuman/sccb.git
+    git clone https://github.com/yourusername/sccb.git
     cd sccb
     pip install -e .
 
@@ -59,22 +59,29 @@ Then just run:
 
 ---
 
-Add a Snippet
+Add a Snippet (API Key Example)
 
-    sccb add@ greet:"Hello {name}!"
+    sccb add@ apikey:"sk-1234567890abcdef"
 
-- Copy with a variable:
+- Copy it to clipboard:
 
-      sccb greet name:"Alice"
+      sccb apikey
 
-→ Copies Hello Alice! to clipboard.
+→ Copies sk-1234567890abcdef to clipboard.
+
+- With a variable (e.g., different environments):
+
+      sccb add@ apikey:"{env}_sk-1234567890abcdef"
+      sccb apikey env:"dev"
+
+→ Copies dev_sk-1234567890abcdef to clipboard.
 
 - With a default:
 
-      sccb default greet name:"friend"
-      sccb greet
+      sccb default apikey env:"prod"
+      sccb apikey
 
-→ Copies Hello friend! to clipboard.
+→ Copies prod_sk-1234567890abcdef to clipboard.
 
 ---
 
@@ -88,7 +95,7 @@ Shows all saved commands and snippets in pretty tables.
 
 Remove a Shortcut
 
-    sccb rm gitall
+    sccb rm apikey
 
 ---
 
@@ -134,10 +141,10 @@ and the command will appear in your terminal buffer, ready to run.
         }
       },
       "snippets": {
-        "greet": {
+        "apikey": {
           "type": "snippet",
-          "value": "Hello {name}!",
-          "defaults": { "name": "friend" }
+          "value": "sk-1234567890abcdef",
+          "defaults": {}
         }
       }
     }
@@ -154,7 +161,7 @@ and the command will appear in your terminal buffer, ready to run.
 - Packaging: pyproject.toml + published to PyPI
   This project started as a way to save time typing repetitive Git commands and reusing text snippets. Over time, I added:
 
-- Variable substitution ({msg}, {name})
+- Variable substitution ({msg}, {env})
 - Defaults (sccb default)
 - Shell integration for buffer mode
 - A polished CLI with ls, rm, edit, and help
