@@ -17,7 +17,6 @@ I built this project to save time in my daily workflow — instead of typing lon
 - 🎨 Pretty output → Uses Rich for nice tables.
 - 🖥 Shell integration → Optionally push commands into your shell buffer (zsh).
 - 🧹 Simple management → Add, remove, list, set defaults, and edit shortcuts easily.
-- 🚀 Direct execution → Run shortcuts directly (sccb gitall) without needing run.
 
 ---
 
@@ -43,19 +42,18 @@ Add a Command
 
 - {msg} is a variable placeholder.
 
-- You can pass it at runtime:
+- Run it with a custom message:
 
-      sccb gitall msg:"Initial commit" !
+      sccb run gitall msg:"Initial commit" !
 
-→ Runs git add . && git commit -m 'Initial commit' && git push
+→ Executes git add . && git commit -m 'Initial commit' && git push
 
 - Or define a default:
 
       sccb default gitall msg:"quick commit"
+      sccb run gitall !
 
-Then just run:
-
-    sccb gitall !
+→ Executes with "quick commit" as the default message.
 
 ---
 
@@ -65,21 +63,21 @@ Add a Snippet (API Key Example)
 
 - Copy it to clipboard:
 
-      sccb apikey
+      sccb run apikey
 
 → Copies sk-1234567890abcdef to clipboard.
 
 - With a variable (e.g., different environments):
 
       sccb add@ apikey:"{env}_sk-1234567890abcdef"
-      sccb apikey env:"dev"
+      sccb run apikey env:"dev"
 
 → Copies dev_sk-1234567890abcdef to clipboard.
 
 - With a default:
 
       sccb default apikey env:"prod"
-      sccb apikey
+      sccb run apikey
 
 → Copies prod_sk-1234567890abcdef to clipboard.
 
@@ -88,8 +86,6 @@ Add a Snippet (API Key Example)
 List Shortcuts
 
     sccb ls
-
-Shows all saved commands and snippets in pretty tables.
 
 ---
 
@@ -103,15 +99,11 @@ Edit Config
 
     sccb edit
 
-Opens ~/.sccb.json in your default editor ($EDITOR or nano).
-
 ---
 
 Help
 
     sccb help
-
-Shows a quick guide to all commands.
 
 ---
 
@@ -124,7 +116,7 @@ You can install shell integration to push commands into your shell buffer (zsh o
 
 Then you can type:
 
-    sccb gitall
+    sccb run gitall
 
 and the command will appear in your terminal buffer, ready to run.
 
@@ -165,4 +157,3 @@ and the command will appear in your terminal buffer, ready to run.
 - Defaults (sccb default)
 - Shell integration for buffer mode
 - A polished CLI with ls, rm, edit, and help
-- Direct shortcut execution (sccb gitall instead of sccb run gitall)
