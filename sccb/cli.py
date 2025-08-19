@@ -361,8 +361,8 @@ def help():
     console.print("  sccb add@ name:\"snippet\"    -> Add a snippet (clipboard text)\n")
 
     console.print("[bold magenta]Using Shortcuts[/bold magenta]")
-    console.print("  sccb name        -> Print command OR copy snippet to clipboard")
-    console.print("  sccb name !      -> Execute command")
+    console.print("  sccb run name        -> Print command OR copy snippet to clipboard")
+    console.print("  sccb run name !      -> Execute command")
     console.print("  sccb name var:\"value\" -> Use variables")
     console.print("  sccb ls          -> List all saved commands and snippets")
     console.print("  sccb rm name     -> Remove a shortcut")
@@ -372,9 +372,9 @@ def help():
     console.print("[bold magenta]Examples[/bold magenta]")
     console.print("  sccb add gitall:\"git add . && git commit -m '{msg}' && git push\"")
     console.print("  sccb default gitall msg:\"WIP commits\"  -> Set default message")
-    console.print("  sccb gitall      -> Uses default: 'WIP commits'")
-    console.print("  sccb gitall msg:\"Fixed bug\" -> Override with custom message")
-    console.print("  sccb gitall !    -> Execute with defaults")
+    console.print("  sccb run gitall      -> Uses default: 'WIP commits'")
+    console.print("  sccb run gitall msg:\"Fixed bug\" -> Override with custom message")
+    console.print("  sccb run gitall !    -> Execute with defaults")
     console.print("  sccb add@ greet:\"Hello {name}!\"")
     console.print("  sccb greet name:\"Alice\" -> Copies 'Hello Alice!' to clipboard\n")
 
