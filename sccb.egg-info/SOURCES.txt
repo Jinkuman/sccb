@@ -1,3 +1,4 @@
+LICENSE
 README.md
 pyproject.toml
 sccb/__init__.py
@@ -5,6 +6,4 @@ sccb/cli.py
 sccb.egg-info/PKG-INFO
 sccb.egg-info/SOURCES.txt
 sccb.egg-info/dependency_links.txt
-sccb.egg-info/entry_points.txt
-sccb.egg-info/requires.txt
 sccb.egg-info/top_level.txt
